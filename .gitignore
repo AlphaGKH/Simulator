@@ -1,0 +1,13 @@
+*/build/
+test/
+*/Debug/
+*/Release/
+*/x64/
+*.ttt
+*.db
+*.sdf
+*/*/Debug/
+*/*/x64/
+*.filters
+*.suo
+*.vcxproj
