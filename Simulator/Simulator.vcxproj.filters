@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\common">
+      <UniqueIdentifier>{11857c30-7a84-4d4d-98c4-2202ead5edd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\socket">
+      <UniqueIdentifier>{573a9529-7a0c-4f88-96a7-330f0371ff7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\socket">
+      <UniqueIdentifier>{e99376e7-4dab-4c00-916f-924aa6d8ec43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\common\mlog">
+      <UniqueIdentifier>{b047bc8b-8d05-4316-bed8-656cee0857e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\common">
+      <UniqueIdentifier>{4c77edb0-a5cb-4f88-8db5-e666554a2f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\common\mlog">
+      <UniqueIdentifier>{81e0337e-f788-4f7e-ad29-8a066bd0780f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\socket\lidar_socket">
+      <UniqueIdentifier>{b55b14e3-269f-497a-b42c-a19f4ef6f2ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\socket\lidar_socket">
+      <UniqueIdentifier>{9871965e-01af-46d6-a386-c64ff6cfc94f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\common\types">
+      <UniqueIdentifier>{ed2e233a-db80-40f9-9a0b-d213856ab180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\socket\chassis_socket">
+      <UniqueIdentifier>{9f28dd81-4dc4-44ad-918a-bedde9be285f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\socket\chassis_socket">
+      <UniqueIdentifier>{375880f9-adce-486d-b31f-59765a4661b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\socket\cmd_socket">
+      <UniqueIdentifier>{f89a6ca7-01a1-4cc7-9ab6-91a2c2cd0903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\socket\cmd_socket">
+      <UniqueIdentifier>{ef76e5a6-404e-4b75-9821-536dd93d7db3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\base_recv_socket.cpp">
+      <Filter>源文件\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="common\mlog\mlog.cpp">
+      <Filter>源文件\common\mlog</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\lidar_socket\lidar_socket.cpp">
+      <Filter>源文件\socket\lidar_socket</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\chassis_socket\chassis_socket.cpp">
+      <Filter>源文件\socket\chassis_socket</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\base_send_socket.cpp">
+      <Filter>源文件\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\cmd_socket\cmd_socket.cpp">
+      <Filter>源文件\socket\cmd_socket</Filter>
+    </ClCompile>
+    <ClCompile Include="common\basicfunction.cpp">
+      <Filter>源文件\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="socket\base_recv_socket.h">
+      <Filter>头文件\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\base_socket.h">
+      <Filter>头文件\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="common\mlog\mlog.h">
+      <Filter>头文件\common\mlog</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\lidar_socket\lidar_socket.h">
+      <Filter>头文件\socket\lidar_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="common\types\lidar_msg.h">
+      <Filter>头文件\common\types</Filter>
+    </ClInclude>
+    <ClInclude Include="common\notation.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\chassis_socket\chassis_socket.h">
+      <Filter>头文件\socket\chassis_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="common\types\chassis_msg.h">
+      <Filter>头文件\common\types</Filter>
+    </ClInclude>
+    <ClInclude Include="common\basicfunction.h">
+      <Filter>头文件\common</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\base_send_socket.h">
+      <Filter>头文件\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\cmd_socket\cmd_socket.h">
+      <Filter>头文件\socket\cmd_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="common\types\cmd_msg.h">
+      <Filter>头文件\common\types</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
