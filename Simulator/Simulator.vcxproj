@@ -65,7 +65,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>D:\Program Files\lcm_1.4.0-1_win64\lib;D:\Program Files\lcm_1.4.0-1_win64\bin;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>D:\Program Files\lcm_1.4.0-1_win64\lib;D:\Program Files\lcm_1.4.0-1_win64\bin;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -83,11 +88,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files\lcm_1.4.0-1_win64\include;./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lcm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,37 +118,51 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files\lcm_1.4.0-1_win64\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>lcm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="common\basicfunction.cpp" />
     <ClCompile Include="common\mlog\mlog.cpp" />
+    <ClCompile Include="common\mtime\mtime.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="socket\base_recv_socket.cpp" />
-    <ClCompile Include="socket\base_send_socket.cpp" />
-    <ClCompile Include="socket\chassis_socket\chassis_socket.cpp" />
-    <ClCompile Include="socket\cmd_socket\cmd_socket.cpp" />
-    <ClCompile Include="socket\lidar_socket\lidar_socket.cpp" />
+    <ClCompile Include="sockets\base_recv_socket.cpp" />
+    <ClCompile Include="sockets\base_send_socket.cpp" />
+    <ClCompile Include="sockets\chassis_socket\chassis_socket.cpp" />
+    <ClCompile Include="sockets\cmd_socket\cmd_socket.cpp" />
+    <ClCompile Include="sockets\lidar_socket\lidar_socket.cpp" />
+    <ClCompile Include="threads\base_thread.cpp" />
+    <ClCompile Include="threads\chassis_thread\chassis_thread.cpp" />
+    <ClCompile Include="threads\cmd_thread\cmd_thread.cpp" />
+    <ClCompile Include="threads\lidar_thread\lidar_thread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\basicfunction.h" />
     <ClInclude Include="common\mlog\mlog.h" />
+    <ClInclude Include="common\mtime\mtime.h" />
     <ClInclude Include="common\notation.h" />
     <ClInclude Include="common\types\chassis_msg.h" />
     <ClInclude Include="common\types\cmd_msg.h" />
     <ClInclude Include="common\types\lidar_msg.h" />
-    <ClInclude Include="socket\base_recv_socket.h" />
-    <ClInclude Include="socket\base_send_socket.h" />
-    <ClInclude Include="socket\base_socket.h" />
-    <ClInclude Include="socket\chassis_socket\chassis_socket.h" />
-    <ClInclude Include="socket\cmd_socket\cmd_socket.h" />
-    <ClInclude Include="socket\lidar_socket\lidar_socket.h" />
+    <ClInclude Include="msgs\simulator\ChassisLcmType.hpp" />
+    <ClInclude Include="msgs\simulator\CMDLcmType.hpp" />
+    <ClInclude Include="msgs\simulator\LidarLcmType.hpp" />
+    <ClInclude Include="sockets\base_recv_socket.h" />
+    <ClInclude Include="sockets\base_send_socket.h" />
+    <ClInclude Include="sockets\base_socket.h" />
+    <ClInclude Include="sockets\chassis_socket\chassis_socket.h" />
+    <ClInclude Include="sockets\cmd_socket\cmd_socket.h" />
+    <ClInclude Include="sockets\lidar_socket\lidar_socket.h" />
+    <ClInclude Include="threads\base_thread.h" />
+    <ClInclude Include="threads\chassis_thread\chassis_thread.h" />
+    <ClInclude Include="threads\cmd_thread\cmd_thread.h" />
+    <ClInclude Include="threads\lidar_thread\lidar_thread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

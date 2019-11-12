@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base_socket.h"
+#include "sockets/base_socket.h"
 
 namespace simulator{
 
@@ -10,7 +10,7 @@ namespace simulator{
 		BaseRecvSocket(const std::string& local_ip, const int& local_port,
 			const std::string& remote_ip, const int& remote_port);
 		BaseRecvSocket(const int& local_port, const int& remote_port);
-		~BaseRecvSocket();
+		virtual ~BaseRecvSocket();
 
 		bool Init() override;
 

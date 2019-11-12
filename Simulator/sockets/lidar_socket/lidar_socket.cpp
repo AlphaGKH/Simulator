@@ -1,4 +1,4 @@
-#include "socket/lidar_socket/lidar_socket.h"
+#include "sockets/lidar_socket/lidar_socket.h"
 
 #include "common/mlog/mlog.h"
 #include "common/notation.h"
@@ -12,7 +12,6 @@ namespace simulator{
 		BaseRecvSocket(local_port, remote_port){}
 
 	bool LidarSocket::OnReceive(const size_t& lidar_pack_size, LidarMsg* lidar_msg){
-		std::cout << "lidar: " << std::this_thread::get_id() << std::endl;
 		if (!IsReceived(lidar_pack_size))
 		{
 			AERROR << "Do not Receive Any Lidar Message!" << std::endl;
@@ -21,8 +20,10 @@ namespace simulator{
 
 		std::vector<float> distance;
 		distance.clear();
-		distance.reserve(NUMBER_LIDAR_POINT);
-		float number = NUMBER_LIDAR_POINT * sizeof(float);
+		int max_lidar_point = SCAN_ANGLE / SCAN_ANGLE_RESOLUTION + 1;
+		distance.reserve(max_lidar_point);
+
+		float number = max_lidar_point * sizeof(float);
 		if (result_ == number)
 		{
 			for (unsigned int i = 0; i < result_ / sizeof(float); i++)

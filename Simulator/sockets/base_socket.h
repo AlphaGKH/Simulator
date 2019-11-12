@@ -4,8 +4,6 @@
 #include <winsock.h>
 #include <string>
 
-#include <thread>
-
 #pragma comment(lib,"ws2_32.lib")
 namespace simulator{
 
@@ -24,7 +22,7 @@ namespace simulator{
 			local_port_(local_port),
 			remote_ip_("127.0.0.1"),
 			remote_port_(remote_port){}
-		~BaseSocket() = default;
+		virtual ~BaseSocket() = default;
 
 		virtual bool Init() = 0;
 

@@ -1,0 +1,8 @@
+package simulator;
+
+struct LidarLcmType
+{
+    int64_t  timestamp;
+	int32_t  point_number;
+	double   distance_points[point_number];
+}

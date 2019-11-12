@@ -25,6 +25,15 @@ public:
 	void set_linear_velocity(const float& linear_velocity) { linear_velocity_ = linear_velocity; }
 	void set_linear_acceleration(const float& linear_acceleration) { linear_acceleration_ = linear_acceleration; }
 	void set_kappa(const float& kappa) { kappa_ = kappa; }
+
+	void copyFrom(const ChassisMsg& other) {
+		x_ = other.x();
+		y_ = other.y();
+		theta_ = other.theta();
+		linear_velocity_ = other.linear_velocity();
+		linear_acceleration_ = other.linear_acceleration();
+		kappa_ = other.kappa();
+	}
 	
 
 

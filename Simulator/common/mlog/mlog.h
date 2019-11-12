@@ -7,10 +7,6 @@
 #include <cstdlib>
 #include <stdint.h>
 
-namespace common{
-
-}
-
 #define AINFO LOG(INFO)
 #define AWARN LOG(WARNING)
 #define AERROR LOG(ERRORS)

@@ -1,4 +1,4 @@
-#include "base_send_socket.h"
+#include "sockets/base_send_socket.h"
 #include "common/mlog/mlog.h"
 
 namespace simulator{
@@ -30,15 +30,19 @@ namespace simulator{
 			return false;
 		}
 
-		local_addr_.sin_family = AF_INET;
-		local_addr_.sin_port = htons(local_port_);
-		local_addr_.sin_addr.s_addr = inet_addr(local_ip_.c_str());
+		//local_addr_.sin_family = AF_INET;
+		//local_addr_.sin_port = htons(local_port_);
+		//local_addr_.sin_addr.s_addr = inet_addr(local_ip_.c_str());
+
+		remote_addr_.sin_family = AF_INET;
+		remote_addr_.sin_port = htons(remote_port_);
+		remote_addr_.sin_addr.s_addr = inet_addr(remote_ip_.c_str());
 
 		return true;
 	}
 
-	void BaseSendSocket::Send(const char* send_data) {
-		sendto(send_socket_, send_data, strlen(send_data), 0, (SOCKADDR*)&local_addr_, sizeof(local_addr_));
+	void BaseSendSocket::Send(const char* send_data){
+		sendto(send_socket_, send_data, strlen(send_data), 0, (SOCKADDR*)&remote_addr_, sizeof(remote_addr_));
 	}
 
 

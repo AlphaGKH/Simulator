@@ -1,0 +1,12 @@
+package simulator;
+
+struct ChassisLcmType
+{
+    int64_t  timestamp;
+	double x;
+	double y;
+	double theta;
+	double linear_velocity;
+	double linear_acceleration;
+	double kappa;
+}

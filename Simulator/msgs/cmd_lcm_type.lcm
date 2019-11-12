@@ -1,0 +1,16 @@
+package simulator;
+
+struct CMDLcmType
+{
+    int64_t  timestamp;
+	byte gear;
+	double linear_velocity;
+	double front_wheel_angle;
+	boolean lateralctrl_enabled;
+	boolean longitutdectrl_enabled;
+	boolean leftlamp_turnedon;
+	boolean rightlamp_turnedon;
+	byte brake;
+	byte e_stop_limit;
+	
+}

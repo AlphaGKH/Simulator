@@ -1,29 +1,21 @@
 #include <iostream>
 
-#include "socket/lidar_socket/lidar_socket.h"
-#include "socket/chassis_socket/chassis_socket.h"
-#include "common/notation.h"
-#include "common/basicfunction.h"
-
-#include <thread>
+#include "threads/lidar_thread/lidar_thread.h"
+#include "threads/chassis_thread/chassis_thread.h"
+#include "threads/cmd_thread/cmd_thread.h"
 
 int main(){
+	simulator::LidarThread lidar_thread(LIDAR_LCM_CHANNEL);
+	lidar_thread.Start();
 
-	simulator::LidarMsg lidar_msg;
-	simulator::LidarSocket lidarsocket(LIDAR_LOCAL_PORT, LIDAR_REMOTE_PORT);
-	lidarsocket.Init();
+	simulator::ChassisThread chassis_thread(CHASSIS_LCM_CHANNEL);
+	chassis_thread.Start();
 
-	simulator::ChassisMsg chassis_msg;
-	simulator::ChassisSocket chassissocket(CHASSIS_LOCAL_PORT, CHASSIS_REMOTE_PORT);
-	chassissocket.Init();
+	simulator::CmdThread cmd_thread(CMD_LCM_CHANNEL);
+	cmd_thread.Start();
 
-	std::cout << std::this_thread::get_id() << std::endl;
 
-	while (true)
-	{
-		lidarsocket.OnReceive(6010, &lidar_msg);
-		chassissocket.OnReceive(6010, &chassis_msg);
-	}
-
-	std::cout << "hello, world!" << std::endl;
+	chassis_thread.Join();
+	lidar_thread.Join();
+	cmd_thread.Join();
 }

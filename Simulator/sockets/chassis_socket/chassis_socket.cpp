@@ -1,4 +1,4 @@
-#include "socket/chassis_socket/chassis_socket.h"
+#include "sockets/chassis_socket/chassis_socket.h"
 
 #include "common/mlog/mlog.h"
 #include "common/notation.h"
@@ -13,7 +13,6 @@ namespace simulator{
 		BaseRecvSocket(local_port, remote_port){}
 
 	bool ChassisSocket::OnReceive(const size_t& chassis_pack_size, ChassisMsg* chassis_msg){
-		std::cout << "chassis: " << std::this_thread::get_id() << std::endl;
 		if (!IsReceived(chassis_pack_size))
 		{
 			AERROR << "Do not Receive Any Chassis Message!" << std::endl;
