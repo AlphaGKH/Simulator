@@ -17,7 +17,7 @@ namespace simulator
 class LidarLcmType
 {
     public:
-        int64_t    timestamp;
+        double     timestamp;
 
         int32_t    point_number;
 
@@ -119,7 +119,7 @@ int LidarLcmType::_encodeNoHash(void *buf, int offset, int maxlen) const
 {
     int pos = 0, tlen;
 
-    tlen = __int64_t_encode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
+    tlen = __double_encode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
     if(tlen < 0) return tlen; else pos += tlen;
 
     tlen = __int32_t_encode_array(buf, offset + pos, maxlen - pos, &this->point_number, 1);
@@ -137,7 +137,7 @@ int LidarLcmType::_decodeNoHash(const void *buf, int offset, int maxlen)
 {
     int pos = 0, tlen;
 
-    tlen = __int64_t_decode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
+    tlen = __double_decode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
     if(tlen < 0) return tlen; else pos += tlen;
 
     tlen = __int32_t_decode_array(buf, offset + pos, maxlen - pos, &this->point_number, 1);
@@ -155,7 +155,7 @@ int LidarLcmType::_decodeNoHash(const void *buf, int offset, int maxlen)
 int LidarLcmType::_getEncodedSizeNoHash() const
 {
     int enc_size = 0;
-    enc_size += __int64_t_encoded_array_size(NULL, 1);
+    enc_size += __double_encoded_array_size(NULL, 1);
     enc_size += __int32_t_encoded_array_size(NULL, 1);
     enc_size += __double_encoded_array_size(NULL, this->point_number);
     return enc_size;
@@ -163,7 +163,7 @@ int LidarLcmType::_getEncodedSizeNoHash() const
 
 uint64_t LidarLcmType::_computeHash(const __lcm_hash_ptr *)
 {
-    uint64_t hash = 0xd7c30865994dc673LL;
+    uint64_t hash = 0x2bfc6e812679e865LL;
     return (hash<<1) + ((hash>>63)&1);
 }
 

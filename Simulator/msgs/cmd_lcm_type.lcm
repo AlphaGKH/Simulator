@@ -2,7 +2,7 @@ package simulator;
 
 struct CMDLcmType
 {
-    int64_t  timestamp;
+    double  timestamp;
 	byte gear;
 	double linear_velocity;
 	double front_wheel_angle;

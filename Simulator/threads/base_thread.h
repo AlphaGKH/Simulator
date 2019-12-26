@@ -17,7 +17,6 @@ namespace simulator{
 
 	public:
 		bool Start();
-		void Join();
 		void Stop();
 
 	protected:

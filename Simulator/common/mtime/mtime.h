@@ -7,10 +7,15 @@
 #include <sys/time.h>
 #endif
 
-namespace simulator {
+namespace common {
 
-	unsigned long long GetCurrentTimeMsec();
+namespace mtime {
+
+double GetCurrentTimeSec();
 
 }
+
+}
+
 
 

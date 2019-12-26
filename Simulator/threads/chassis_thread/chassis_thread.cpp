@@ -18,10 +18,6 @@ namespace simulator {
 		}
 	}
 
-	ChassisThread::~ChassisThread()
-	{
-	}
-
 	void ChassisThread::CallBackFunction() {
 		kSleepTime_ = CHASSIS_THREAD_CYCLE;
 		while (!is_stoped_)
@@ -32,7 +28,7 @@ namespace simulator {
 			chassis_socket_->OnReceive(CHASSIS_BUFF_MAX_SIZE, &chassis_msg_);
 
 			ChassisLcmType chassis_lcm_data;
-			chassis_lcm_data.timestamp = GetCurrentTimeMsec();
+			chassis_lcm_data.timestamp = common::mtime::GetCurrentTimeSec();
 			chassis_lcm_data.x = chassis_msg_.x();
 			chassis_lcm_data.y = chassis_msg_.y();
 			chassis_lcm_data.theta = chassis_msg_.theta();

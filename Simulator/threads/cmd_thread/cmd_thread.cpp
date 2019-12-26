@@ -20,10 +20,6 @@ namespace simulator {
 
 	}
 
-	CmdThread::~CmdThread()
-	{
-	}
-
 	void CmdThread::CallBackFunction() {
 		kSleepTime_ = CMD_THREAD_CYCLE;
 		while ((!is_stoped_) && (0 == lcm_->handle()))

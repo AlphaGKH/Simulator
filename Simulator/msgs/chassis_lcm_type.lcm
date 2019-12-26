@@ -2,7 +2,7 @@ package simulator;
 
 struct ChassisLcmType
 {
-    int64_t  timestamp;
+    double  timestamp;
 	double x;
 	double y;
 	double theta;

@@ -16,10 +16,6 @@ namespace simulator {
 		}
 	}
 
-	LidarThread::~LidarThread()
-	{
-	}
-
 	void LidarThread::CallBackFunction() {
 		kSleepTime_ = LIDAR_THREAD_CYCLE;
 		while (!is_stoped_)
@@ -31,7 +27,7 @@ namespace simulator {
 
 			LidarLcmType lidar_lcm_data;
 			size_t number = lidar_msg_.distance_points().size();
-			lidar_lcm_data.timestamp = GetCurrentTimeMsec();
+			lidar_lcm_data.timestamp = common::mtime::GetCurrentTimeSec();
 			lidar_lcm_data.point_number = number;
 			for (const auto& point : lidar_msg_.distance_points())
 			{

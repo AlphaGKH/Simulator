@@ -11,7 +11,7 @@ namespace simulator {
 	{
 	public:
 		ChassisThread(const std::string& lcm_channel);
-		~ChassisThread();
+		~ChassisThread() override = default;
 
 	protected:
 		void CallBackFunction() override;

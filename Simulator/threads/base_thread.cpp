@@ -8,6 +8,10 @@ namespace simulator {
 
 	BaseThread::~BaseThread()
 	{
+		if (thread_ && thread_->joinable())
+		{
+			thread_->join();
+		}
 	}
 
 	bool BaseThread::Start() {
@@ -18,12 +22,6 @@ namespace simulator {
 		}
 		thread_.reset(new std::thread(&BaseThread::CallBackFunction, this));
 		return true;
-	}
-
-	void BaseThread::Join() {
-		if (thread_ && thread_->joinable()) {
-			thread_->join();
-		}
 	}
 
 	void BaseThread::Stop() {

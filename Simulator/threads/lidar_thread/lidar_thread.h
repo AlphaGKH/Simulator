@@ -11,7 +11,7 @@ namespace simulator{
 	{
 	public:
 		LidarThread(const std::string& lcm_channel);
-		~LidarThread();
+		~LidarThread() override = default;
 	protected:
 		void CallBackFunction() override;
 

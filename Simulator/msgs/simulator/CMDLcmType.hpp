@@ -16,7 +16,7 @@ namespace simulator
 class CMDLcmType
 {
     public:
-        int64_t    timestamp;
+        double     timestamp;
 
         uint8_t    gear;
 
@@ -132,7 +132,7 @@ int CMDLcmType::_encodeNoHash(void *buf, int offset, int maxlen) const
 {
     int pos = 0, tlen;
 
-    tlen = __int64_t_encode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
+    tlen = __double_encode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
     if(tlen < 0) return tlen; else pos += tlen;
 
     tlen = __byte_encode_array(buf, offset + pos, maxlen - pos, &this->gear, 1);
@@ -169,7 +169,7 @@ int CMDLcmType::_decodeNoHash(const void *buf, int offset, int maxlen)
 {
     int pos = 0, tlen;
 
-    tlen = __int64_t_decode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
+    tlen = __double_decode_array(buf, offset + pos, maxlen - pos, &this->timestamp, 1);
     if(tlen < 0) return tlen; else pos += tlen;
 
     tlen = __byte_decode_array(buf, offset + pos, maxlen - pos, &this->gear, 1);
@@ -205,7 +205,7 @@ int CMDLcmType::_decodeNoHash(const void *buf, int offset, int maxlen)
 int CMDLcmType::_getEncodedSizeNoHash() const
 {
     int enc_size = 0;
-    enc_size += __int64_t_encoded_array_size(NULL, 1);
+    enc_size += __double_encoded_array_size(NULL, 1);
     enc_size += __byte_encoded_array_size(NULL, 1);
     enc_size += __double_encoded_array_size(NULL, 1);
     enc_size += __double_encoded_array_size(NULL, 1);
@@ -220,7 +220,7 @@ int CMDLcmType::_getEncodedSizeNoHash() const
 
 uint64_t CMDLcmType::_computeHash(const __lcm_hash_ptr *)
 {
-    uint64_t hash = 0x5e03e2aaeadc9181LL;
+    uint64_t hash = 0x6b5d359bfb481644LL;
     return (hash<<1) + ((hash>>63)&1);
 }
 

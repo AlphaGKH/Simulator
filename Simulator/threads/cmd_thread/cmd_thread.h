@@ -11,7 +11,7 @@ namespace simulator {
 	{
 	public:
 		CmdThread(const std::string& lcm_channel);
-		~CmdThread();
+		~CmdThread() override = default;
 
 	protected:
 		void CallBackFunction() override;
