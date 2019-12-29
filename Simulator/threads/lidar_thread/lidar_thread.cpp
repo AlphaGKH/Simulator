@@ -23,7 +23,10 @@ namespace simulator {
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(kSleepTime_));
 			std::lock_guard<std::mutex> lock(base_mutex_);
-			lidar_socket_->OnReceive(LIDAR_BUFF_MAX_SIZE, &lidar_msg_);
+			if (!lidar_socket_->OnReceive(LIDAR_BUFF_MAX_SIZE, &lidar_msg_))
+			{
+				continue;
+			}
 
 			LidarLcmType lidar_lcm_data;
 			size_t number = lidar_msg_.distance_points().size();

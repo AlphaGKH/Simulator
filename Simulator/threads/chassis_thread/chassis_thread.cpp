@@ -25,7 +25,9 @@ namespace simulator {
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(kSleepTime_));
 			std::lock_guard<std::mutex> lock(base_mutex_);
-			chassis_socket_->OnReceive(CHASSIS_BUFF_MAX_SIZE, &chassis_msg_);
+			if (!chassis_socket_->OnReceive(CHASSIS_BUFF_MAX_SIZE, &chassis_msg_)) {
+				continue;
+			}
 
 			ChassisLcmType chassis_lcm_data;
 			chassis_lcm_data.timestamp = common::mtime::GetCurrentTimeSec();
